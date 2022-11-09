@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from "../../services/auth.service";
+import { User } from "../../interfaces/user";
+import { Emitters } from "../../emitters/emitters";
 
 @Component({
   selector: 'app-nav',
@@ -6,10 +9,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./nav.component.css']
 })
 export class NavComponent implements OnInit {
+  user: User|null = null;
 
-  constructor() { }
+  constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
+    Emitters.authEmitter.subscribe(
+      user => {
+        this.user = user;
+      }
+    )
   }
 
 }
