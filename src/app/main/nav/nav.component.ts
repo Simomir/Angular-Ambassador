@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from "../../services/auth.service";
 import { User } from "../../interfaces/user";
 import { Emitters } from "../../emitters/emitters";
+import { faUser } from "@fortawesome/free-solid-svg-icons/faUser";
 
 @Component({
   selector: 'app-nav',
@@ -10,6 +11,7 @@ import { Emitters } from "../../emitters/emitters";
 })
 export class NavComponent implements OnInit {
   user: User|null = null;
+  profileIcon = faUser;
 
   constructor(private authService: AuthService) { }
 
