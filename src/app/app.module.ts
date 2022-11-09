@@ -7,6 +7,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 import { CredentialsInterceptor } from "./interceptors/credentials.interceptor";
 import { MainModule } from "./main/main.module";
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
     HttpClientModule,
     MainModule,
     FontAwesomeModule,
+    BrowserAnimationsModule,
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: CredentialsInterceptor, multi: true}
