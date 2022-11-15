@@ -6,17 +6,19 @@ import { RegisterComponent } from "./public/register/register.component";
 import { MainComponent } from "./main/main.component";
 import { SecureComponent } from "./main/secure/secure.component";
 import { ProfileComponent } from "./main/secure/profile/profile.component";
+import { FrontendProductsComponent } from "./main/frontend-products/frontend-products.component";
 
 const routes: Routes = [
   {
     path: '',
     component: MainComponent,
     children: [
+      {  path: '', component: FrontendProductsComponent},
       {
         path: '',
         component: SecureComponent,
         children: [
-          { path: '/profile', component: ProfileComponent }
+          { path: 'profile', component: ProfileComponent }
         ],
       }
     ],
