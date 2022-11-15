@@ -17,7 +17,7 @@
       <fa-icon [icon]="profileIcon"></fa-icon>
       {{user?.first_name}} {{user?.last_name}}
     </a>
-    <a title="Logout" class="btn btn-outline-primary" href="#" routerLink="/profile">
+    <a title="Logout" class="btn btn-outline-primary" href="#" routerLink="/profile" (click)="logout()">
       <fa-icon [icon]="logoutIcon"></fa-icon>
     </a>
   </ng-template>
