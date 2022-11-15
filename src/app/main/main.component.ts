@@ -18,5 +18,4 @@ export class MainComponent implements OnInit {
       error: () => Emitters.authEmitter.emit(null)
     });
   }
-
 }
