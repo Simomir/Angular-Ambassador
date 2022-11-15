@@ -3,21 +3,16 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from "@angular/router";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
-
+const modules = [
+  CommonModule,
+  RouterModule,
+  FormsModule,
+  ReactiveFormsModule,
+];
 
 @NgModule({
   declarations: [],
-  imports: [
-    CommonModule,
-    RouterModule,
-    FormsModule,
-    ReactiveFormsModule,
-  ],
-  exports: [
-    CommonModule,
-    RouterModule,
-    FormsModule,
-    ReactiveFormsModule,
-  ],
+  imports: modules,
+  exports: modules,
 })
 export class SharedModule { }
