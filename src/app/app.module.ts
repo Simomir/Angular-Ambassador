@@ -6,8 +6,8 @@ import { PublicModule } from "./public/public.module";
 import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 import { CredentialsInterceptor } from "./interceptors/credentials.interceptor";
 import { MainModule } from "./main/main.module";
-import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SharedModule } from "./shared/shared.module";
 
 @NgModule({
   declarations: [
@@ -19,8 +19,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     PublicModule,
     HttpClientModule,
     MainModule,
-    FontAwesomeModule,
     BrowserAnimationsModule,
+    SharedModule,
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: CredentialsInterceptor, multi: true}

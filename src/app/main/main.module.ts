@@ -1,9 +1,7 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { MainComponent } from './main.component';
 import { NavComponent } from './nav/nav.component';
-import { RouterModule } from "@angular/router";
-import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
+import { SharedModule } from "../shared/shared.module";
 
 
 @NgModule({
@@ -12,9 +10,7 @@ import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
     NavComponent
   ],
   imports: [
-    CommonModule,
-    RouterModule,
-    FontAwesomeModule,
+    SharedModule,
   ]
 })
 export class MainModule { }
