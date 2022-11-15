@@ -3,6 +3,7 @@ import { AuthService } from "../../services/auth.service";
 import { User } from "../../interfaces/user";
 import { Emitters } from "../../emitters/emitters";
 import { faUser } from "@fortawesome/free-solid-svg-icons/faUser";
+import { faRightFromBracket } from "@fortawesome/free-solid-svg-icons/faRightFromBracket";
 
 @Component({
   selector: 'app-nav',
@@ -12,6 +13,7 @@ import { faUser } from "@fortawesome/free-solid-svg-icons/faUser";
 export class NavComponent implements OnInit {
   user: User|null = null;
   profileIcon = faUser;
+  logoutIcon = faRightFromBracket;
 
   constructor(private authService: AuthService) { }
 
