@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { StatsService } from "../../../services/stats.service";
 
 @Component({
   selector: 'app-stats',
@@ -6,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./stats.component.css']
 })
 export class StatsComponent implements OnInit {
+  links = [];
 
-  constructor() { }
+  constructor(private statsService: StatsService) { }
 
   ngOnInit(): void {
+    this.statsService.stats().subscribe({
+      next: value => { this.links = value;}
+    });
   }
 
 }
