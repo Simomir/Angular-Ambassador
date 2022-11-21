@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from "@angular/forms";
 import { AuthService } from "../../../services/auth.service";
 import { Emitters } from "../../../emitters/emitters";
+import { FormBuilder, FormGroup } from "@angular/forms";
 
 @Component({
   selector: 'app-profile',
@@ -20,6 +20,10 @@ export class ProfileComponent implements OnInit {
       last_name: '',
       email: '',
     });
+
+    if ( Emitters.user ) {
+      this.infoForm.patchValue(Emitters.user);
+    }
 
     this.passwordForm = this.formBuilder.group({
       password: '',
