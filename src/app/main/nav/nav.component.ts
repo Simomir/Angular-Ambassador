@@ -25,7 +25,7 @@ export class NavComponent implements OnInit {
 
   logout(): void {
     this.authService.logout().subscribe({
-      next: () => Emitters.authEmitter.emit(null)
+      next: () => Emitters.user = null
     });
   }
 
