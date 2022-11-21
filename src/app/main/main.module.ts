@@ -4,13 +4,15 @@ import { NavComponent } from './nav/nav.component';
 import { SharedModule } from "../shared/shared.module";
 import { FrontendProductsComponent } from './frontend-products/frontend-products.component';
 import { SecureModule } from "./secure/secure.module";
+import { HeaderComponent } from './header/header.component';
 
 
 @NgModule({
   declarations: [
     MainComponent,
     NavComponent,
-    FrontendProductsComponent
+    FrontendProductsComponent,
+    HeaderComponent
   ],
   imports: [
     SharedModule,
