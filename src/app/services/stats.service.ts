@@ -14,7 +14,7 @@ export class StatsService {
     return this.http.get<any[]>(`${environment.api}/stats`);
   }
 
-  rankings(): Observable<any[]> {
-    return this.http.get<any[]>(`${environment.api}/rankings`);
+  rankings(): Observable<Object> {
+    return this.http.get<Object>(`${environment.api}/rankings`);
   }
 }
