@@ -5,6 +5,7 @@ import { SharedModule } from "../shared/shared.module";
 import { FrontendProductsComponent } from './frontend-products/frontend-products.component';
 import { SecureModule } from "./secure/secure.module";
 import { HeaderComponent } from './header/header.component';
+import { BackendProductsComponent } from './backend-products/backend-products.component';
 
 
 @NgModule({
@@ -12,7 +13,8 @@ import { HeaderComponent } from './header/header.component';
     MainComponent,
     NavComponent,
     FrontendProductsComponent,
-    HeaderComponent
+    HeaderComponent,
+    BackendProductsComponent
   ],
   imports: [
     SharedModule,
