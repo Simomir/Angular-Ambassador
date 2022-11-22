@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { StatsService } from "../../../services/stats.service";
+import { Link } from "../../../interfaces/link";
 
 @Component({
   selector: 'app-stats',
@@ -7,7 +8,7 @@ import { StatsService } from "../../../services/stats.service";
   styleUrls: ['./stats.component.css']
 })
 export class StatsComponent implements OnInit {
-  links = [];
+  links!: Link[];
 
   constructor(private statsService: StatsService) { }
 
