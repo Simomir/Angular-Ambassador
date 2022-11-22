@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { StatsService } from "../../../services/stats.service";
 
 @Component({
   selector: 'app-rankings',
@@ -6,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./rankings.component.css']
 })
 export class RankingsComponent implements OnInit {
+  rankings: any[] = [];
 
-  constructor() { }
+  constructor(private statsService: StatsService) { }
 
   ngOnInit(): void {
+    this.statsService.rankings().subscribe({
+      next: value => {this.rankings = value;}
+    });
   }
 
 }
