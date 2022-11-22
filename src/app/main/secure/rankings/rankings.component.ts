@@ -15,9 +15,9 @@ export class RankingsComponent implements OnInit {
   ngOnInit(): void {
     this.statsService.rankings().subscribe({
       next: value => {
-        this.rankings = Object.values( value ).sort(function ( a, b ) {
-          return b['revenue'] - a['revenue'];
-        })
+        this.rankings = Object.values( value ).sort(
+          ( a: Ranking, b: Ranking ) => {return b['revenue'] - a['revenue'];}
+        );
       }
     });
   }
