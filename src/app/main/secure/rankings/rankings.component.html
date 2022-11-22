@@ -1,1 +1,18 @@
-<p>rankings works!</p>
+<div class="table-responsive">
+  <table class="table table-striped table-sm">
+    <thead>
+    <tr>
+      <th><fa-icon icon="hashtag"></fa-icon></th>
+      <th>Name</th>
+      <th>Revenue</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let ranking of rankings | keyvalue">
+      <td>#</td>
+      <td>{{ranking.key}}</td>
+      <td>{{ranking.value}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

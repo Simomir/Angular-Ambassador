@@ -16,5 +16,4 @@ export class RankingsComponent implements OnInit {
       next: value => {this.rankings = value;}
     });
   }
-
 }
