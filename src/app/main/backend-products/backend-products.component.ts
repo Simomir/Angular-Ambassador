@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from "../../services/product.service";
 import { Product } from "../../interfaces/product";
+import { ActivatedRoute, Router } from "@angular/router";
 
 @Component({
   selector: 'app-backend-products',
@@ -9,13 +10,24 @@ import { Product } from "../../interfaces/product";
 })
 export class BackendProductsComponent implements OnInit {
   products: Product[] = [];
+  page: number = 1;
 
-  constructor(private productService: ProductService) { }
+  constructor(private productService: ProductService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.productService.backend().subscribe({
-      next: value => {this.products = value.data;}
+    this.route.queryParams.subscribe({
+      next: params => {
+        this.page = params['page'] || 1;
+        this.productService.backend({page: this.page}).subscribe({
+          next: value => {this.products = [...this.products, ...value.data];}
+        });
+      }
     });
+  }
+
+  loadMore(): void {
+    this.page++;
+    this.router.navigate([], {queryParams: {page: this.page}})
   }
 
 }
