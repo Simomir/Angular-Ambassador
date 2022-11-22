@@ -8,7 +8,11 @@
       </tr>
     </thead>
     <tbody>
-
+      <tr *ngFor="let link of links">
+        <td>http://localhost:5000/{{link.code}}</td>
+        <td>{{link.users}}</td>
+        <td>{{link.revenue}}</td>
+      </tr>
     </tbody>
   </table>
 </div>

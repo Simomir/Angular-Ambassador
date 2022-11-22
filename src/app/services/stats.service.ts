@@ -11,7 +11,7 @@ export class StatsService {
 
   constructor(private http: HttpClient) { }
 
-  stats(): Observable<Link[]> {
-    return this.http.get<Link[]>(`${environment.api}/stats`);
+  stats(): Observable<any[]> {
+    return this.http.get<any[]>(`${environment.api}/stats`);
   }
 }

@@ -8,7 +8,7 @@ import { Link } from "../../../interfaces/link";
   styleUrls: ['./stats.component.css']
 })
 export class StatsComponent implements OnInit {
-  links!: Link[];
+  links!: any[];
 
   constructor(private statsService: StatsService) { }
 
