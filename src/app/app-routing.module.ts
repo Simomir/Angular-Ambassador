@@ -8,6 +8,7 @@ import { SecureComponent } from "./main/secure/secure.component";
 import { ProfileComponent } from "./main/secure/profile/profile.component";
 import { FrontendProductsComponent } from "./main/frontend-products/frontend-products.component";
 import { StatsComponent } from "./main/secure/stats/stats.component";
+import { RankingsComponent } from "./main/secure/rankings/rankings.component";
 
 const routes: Routes = [
   {
@@ -20,7 +21,8 @@ const routes: Routes = [
         component: SecureComponent,
         children: [
           { path: 'profile', component: ProfileComponent },
-          { path: 'stats', component: StatsComponent }
+          { path: 'stats', component: StatsComponent },
+          { path: 'rankings', component: RankingsComponent },
         ],
       }
     ],
