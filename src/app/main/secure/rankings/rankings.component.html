@@ -8,8 +8,8 @@
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let ranking of rankings | keyvalue">
-      <td>#</td>
+    <tr *ngFor="let ranking of rankings | keyvalue; let i = index">
+      <td>{{i + 1}}</td>
       <td>{{ranking.key}}</td>
       <td>{{ranking.value}}</td>
     </tr>
