@@ -16,6 +16,11 @@ export class BackendProductsComponent implements OnInit {
   constructor(private productService: ProductService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    if(this.route.snapshot.queryParams['page'] > this.page) {
+      this.page = 0;
+      this.loadMore();
+    }
+
     this.route.queryParams.subscribe({
       next: params => {
         this.page = params['page'] || 1;
