@@ -25,7 +25,8 @@ export class BackendProductsComponent implements OnInit {
       next: params => {
         this.page = params['page'] || 1;
         const s = params['s'] || '';
-        this.productService.backend({page: this.page, s}).subscribe({
+        const sort = params['sort'] || '';
+        this.productService.backend({page: this.page, s, sort}).subscribe({
           next: value => {
             this.products = Number(this.page) === 1 ? value.data : [...this.products, ...value.data];
             this.showButton = Number(value.meta.last_page) !== Number(this.page);
@@ -42,6 +43,16 @@ export class BackendProductsComponent implements OnInit {
 
   search(s: string):void {
     this.router.navigate([], {queryParams: {s, page: 1}, queryParamsHandling: 'merge'});
+  }
+
+  sort(sort: string): void {
+    this.router.navigate([], {
+      queryParams: {
+        sort,
+        page: 1
+      },
+      queryParamsHandling: 'merge'
+    });
   }
 
 }

@@ -12,7 +12,7 @@ export class ProductService {
 
   constructor(private http: HttpClient) { }
 
-  backend(filters?: {page?: number, s?: string}): Observable<PaginatedProducts> {
+  backend(filters?: {page?: number, s?: string, sort?: string}): Observable<PaginatedProducts> {
     let params = new HttpParams();
 
     if(filters?.page) {
@@ -21,6 +21,10 @@ export class ProductService {
 
     if(filters?.s) {
       params = params.set('s', filters.s);
+    }
+
+    if(filters?.sort) {
+      params = params.set('sort', filters.sort)
     }
 
     return this.http.get<PaginatedProducts>(`${this.endpoint}/backend`, {params});
