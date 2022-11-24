@@ -9,8 +9,8 @@
       </select>
     </div>
   </div>
-  <div class="col" *ngFor="let product of products" [class.selected]="isSelected(product.id)">
-    <div class="card shadow-sm" (click)="select(product.id)">
+  <div class="col" *ngFor="let product of products">
+    <div class="card shadow-sm" (click)="select(product.id)" [class.selected]="isSelected(product.id)">
       <img [src]="product.image" alt="Product Image" height="200">
       <div class="card-body">
         <p class="card-text">{{product.title}}</p>
