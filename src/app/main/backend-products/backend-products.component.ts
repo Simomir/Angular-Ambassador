@@ -12,6 +12,7 @@ export class BackendProductsComponent implements OnInit {
   products: Product[] = [];
   page: number = 1;
   showButton: boolean = true;
+  selected: number[] = [];
 
   constructor(private productService: ProductService, private router: Router, private route: ActivatedRoute) { }
 
@@ -53,6 +54,18 @@ export class BackendProductsComponent implements OnInit {
       },
       queryParamsHandling: 'merge'
     });
+  }
+
+  select(id: number):void {
+    if(!this.isSelected(id)) {
+      this.selected = [...this.selected, id];
+    } else {
+      this.selected = this.selected.filter(s => s !== id);
+    }
+  }
+
+  isSelected(id: number): boolean {
+    return this.selected.some(s => s === id);
   }
 
 }
