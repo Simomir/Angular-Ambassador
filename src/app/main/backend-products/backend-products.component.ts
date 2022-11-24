@@ -24,9 +24,10 @@ export class BackendProductsComponent implements OnInit {
     this.route.queryParams.subscribe({
       next: params => {
         this.page = params['page'] || 1;
-        this.productService.backend({page: this.page}).subscribe({
+        const s = params['s'] || '';
+        this.productService.backend({page: this.page, s}).subscribe({
           next: value => {
-            this.products = [...this.products, ...value.data];
+            this.products = Number(this.page) === 1 ? value.data : [...this.products, ...value.data];
             this.showButton = Number(value.meta.last_page) !== Number(this.page);
           }
         });
@@ -36,7 +37,11 @@ export class BackendProductsComponent implements OnInit {
 
   loadMore(): void {
     this.page++;
-    this.router.navigate([], {queryParams: {page: this.page}})
+    this.router.navigate([], {queryParams: {page: this.page}, queryParamsHandling: 'merge'})
+  }
+
+  search(s: string):void {
+    this.router.navigate([], {queryParams: {s, page: 1}, queryParamsHandling: 'merge'});
   }
 
 }
