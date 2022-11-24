@@ -11,6 +11,7 @@ import { ActivatedRoute, Router } from "@angular/router";
 export class BackendProductsComponent implements OnInit {
   products: Product[] = [];
   page: number = 1;
+  showButton: boolean = true;
 
   constructor(private productService: ProductService, private router: Router, private route: ActivatedRoute) { }
 
@@ -19,7 +20,10 @@ export class BackendProductsComponent implements OnInit {
       next: params => {
         this.page = params['page'] || 1;
         this.productService.backend({page: this.page}).subscribe({
-          next: value => {this.products = [...this.products, ...value.data];}
+          next: value => {
+            this.products = [...this.products, ...value.data];
+            this.showButton = Number(value.meta.last_page) !== Number(this.page);
+          }
         });
       }
     });
