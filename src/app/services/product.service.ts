@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { environment } from "../../environments/environment";
 import { HttpClient, HttpParams } from "@angular/common/http";
 import { Observable } from "rxjs";
-import { Product } from "../interfaces/product";
+import { PaginatedProducts } from "../interfaces/paginated-products";
 
 @Injectable({
   providedIn: 'root'
@@ -12,14 +12,14 @@ export class ProductService {
 
   constructor(private http: HttpClient) { }
 
-  backend(filters?: {page?: number}): Observable<{data: Product[]}> {
+  backend(filters?: {page?: number}): Observable<PaginatedProducts> {
     let params = new HttpParams();
 
     if(filters?.page) {
       params = params.set('page', filters.page)
     }
 
-    return this.http.get<{data: Product[]}>(`${this.endpoint}/backend`, {params});
+    return this.http.get<PaginatedProducts>(`${this.endpoint}/backend`, {params});
   }
 
 }
