@@ -7,6 +7,7 @@ import { SecureModule } from "./secure/secure.module";
 import { HeaderComponent } from './header/header.component';
 import { BackendProductsComponent } from './backend-products/backend-products.component';
 import { PaginatePipe } from './pipes/paginate.pipe';
+import { FilterPipe } from './pipes/filter.pipe';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { PaginatePipe } from './pipes/paginate.pipe';
     FrontendProductsComponent,
     HeaderComponent,
     BackendProductsComponent,
-    PaginatePipe
+    PaginatePipe,
+    FilterPipe
   ],
   imports: [
     SharedModule,
