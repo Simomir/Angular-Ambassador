@@ -3,6 +3,7 @@ import { environment } from "../../environments/environment";
 import { HttpClient, HttpParams } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { PaginatedProducts } from "../interfaces/paginated-products";
+import { Product } from "../interfaces/product";
 
 @Injectable({
   providedIn: 'root'
@@ -28,6 +29,10 @@ export class ProductService {
     }
 
     return this.http.get<PaginatedProducts>(`${this.endpoint}/backend`, {params});
+  }
+
+  frontend(): Observable<Product[]> {
+    return this.http.get<Product[]>(`${this.endpoint}/frontend`);
   }
 
 }
