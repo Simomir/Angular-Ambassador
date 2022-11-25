@@ -1,6 +1,19 @@
 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+  <div class="col-md-12 mb-4">
+    <div class="alert alert-info" role="alert" *ngIf="link">
+      Link generated: {{link}}
+    </div>
+  </div>
+  <div class="col-md-12 mb-4" *ngIf="error">
+    <div class="alert alert-danger" role="alert">
+      You should be logged in to generate a link!
+    </div>
+  </div>
   <div class="col-md-12 mb-4 input-group">
     <input type="text" class="form-control" placeholder="Search" (keyup)="search($any($event.target).value)">
+    <div class="input-group-append" *ngIf="selected.length > 0">
+      <button class="btn btn-info" (click)="generate()">Generate Link</button>
+    </div>
     <div class="input-group-append">
       <select class="form-select" (change)="sort($any($event.target).value)">
         <option>Select</option>

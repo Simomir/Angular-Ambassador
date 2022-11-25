@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ProductService } from "../../services/product.service";
 import { Product } from "../../interfaces/product";
 import { ActivatedRoute, Router } from "@angular/router";
+import { LinkService } from "../../services/link.service";
+import { Link } from "../../interfaces/link";
+import { environment } from "../../../environments/environment";
 
 @Component({
   selector: 'app-backend-products',
@@ -13,8 +16,15 @@ export class BackendProductsComponent implements OnInit {
   page: number = 1;
   showButton: boolean = true;
   selected: number[] = [];
+  link: Link['code'] = '';
+  error = false;
 
-  constructor(private productService: ProductService, private router: Router, private route: ActivatedRoute) { }
+  constructor(
+    private productService: ProductService,
+    private router: Router,
+    private route: ActivatedRoute,
+    private linkService: LinkService,
+  ) { }
 
   ngOnInit(): void {
     if(this.route.snapshot.queryParams['page'] > this.page) {
@@ -66,6 +76,15 @@ export class BackendProductsComponent implements OnInit {
 
   isSelected(id: number): boolean {
     return this.selected.some(s => s === id);
+  }
+
+  generate(): void {
+    this.linkService.generate({
+      products: this.selected
+    }).subscribe({
+      next: value => {this.link = `${environment.checkout_url}/${value.code}`;},
+      error: () => { this.error = true; }
+    });
   }
 
 }
